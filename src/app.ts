@@ -15,12 +15,16 @@ let db = new sqlite3.Database('src/database/EpisodePicker.db', (err) => {
     console.log(DB_LOG + "Connected to the EpisodePicker database.");
 });
 
-let sql = `
-SELECT *
-FROM episode
-ORDER BY season_number ASC, episode_number ASC`;
+// let sql = `
+// SELECT *
+// FROM episode
+// ORDER BY season_number ASC, episode_number ASC`;
 
 app.get('/episodes', (req: Request, res: Response) => {
+    let sql: string = `
+        SELECT *
+        FROM episode
+        ORDER BY season_number ASC, episode_number ASC`;
     db.all(sql, [], function(err: Error, rows: any[]){ //specify rows
         if (err) {
             res.sendStatus(500);
