@@ -1,7 +1,7 @@
 import sqlite3 from 'sqlite3';
 import { DB_LOG } from '../constants/logStrings';
 
-let db = new sqlite3.Database('src/database/EpisodePicker.db', err => {
+let db = new sqlite3.Database('EpisodePicker.db', err => {
     if (err) {
         console.error(err.message);
     }
