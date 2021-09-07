@@ -1,16 +1,18 @@
+import sqlite3 from "sqlite3";
+import {Request, Response} from "express";
+import {SERVER_LOG, DB_LOG } from "./constants/logStrings";
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = 8000;
-import sqlite3 from "sqlite3";
-import {Request, Response} from "express";
 
 app.use(cors());
 let db = new sqlite3.Database('src/database/EpisodePicker.db', (err) => {
     if (err) {
         console.error(err.message);
     }
-    console.log("Connected to the EpisodePicker database.");
+    console.log(DB_LOG + "Connected to the EpisodePicker database.");
 });
 
 let sql = `
@@ -30,5 +32,5 @@ app.get('/episodes', (req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+    console.log(SERVER_LOG + `Server is running at http://localhost:${PORT}`);
 });
