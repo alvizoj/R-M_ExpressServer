@@ -25,7 +25,7 @@ export async function getEpisodeController(req: Request, res: Response) {
     } catch (err) {
         const error = err as Error;
         if (error.message === 'Episode does not exist') {
-            res.sendStatus(404);
+            res.status(404).send(error.toString());
         }
     }
 }
