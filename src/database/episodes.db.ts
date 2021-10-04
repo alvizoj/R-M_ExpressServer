@@ -14,3 +14,21 @@ export default function getEpisodes(): Promise<IEpisode[]> {
         });
     });
 }
+
+export function getEpisode(season: number, episode: number): Promise<IEpisode> {
+    let sql: string = `
+        SELECT *
+        FROM episode
+        WHERE season_number=? AND episode_number=?
+    `;
+
+    return new Promise((resolve, reject) => {
+        db.get(sql, [season, episode], (err: Error, row) => {
+            if (err) reject(err);
+            if (!row) {
+                reject(Error('Episode does not exist'));
+            }
+            resolve(row);
+        });
+    });
+}
