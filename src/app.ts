@@ -1,4 +1,5 @@
 import { SERVER_LOG } from './constants/logStrings';
+import db from './database/database';
 import routes from './routes/routes';
 
 const express = require('express');
@@ -12,4 +13,8 @@ app.use(routes);
 
 app.listen(PORT, () => {
     console.log(SERVER_LOG + `Server is running at http://localhost:${PORT}`);
+});
+
+app.on('SIGINT', () => {
+    db.close();
 });
