@@ -1,11 +1,3 @@
---
--- File generated with SQLiteStudio v3.3.3 on Sun Jun 27 00:55:59 2021
---
--- Text encoding used: System
---
-PRAGMA foreign_keys = off;
-BEGIN TRANSACTION;
-
 -- Table: episode
 DROP TABLE IF EXISTS episode;
 
@@ -63,7 +55,7 @@ INSERT INTO episode (
                         episode_number
                     )
                     VALUES (
-                        3,
+                        4,
                         'M. Night Shaym-Aliens',
                         'Rick and Morty try to get to the bottom of a mystery in this M. Night Shyamalan style twistaroony of an episode! (Guest Starring David Cross)',
                         NULL,
@@ -80,7 +72,7 @@ INSERT INTO episode (
                         episode_number
                     )
                     VALUES (
-                        4,
+                        3,
                         'Anatomy Park',
                         'On a special Christmas episode, Rick and Morty try to save the life of a homeless man. Meanwhile, Jerry''s parents visit and the family bonds. (Guest Starring Dana Carvey and John Oliver)',
                         NULL,
@@ -114,7 +106,7 @@ INSERT INTO episode (
                         episode_number
                     )
                     VALUES (
-                        6,
+                        7,
                         'Raising Gazorpazorp',
                         'Morty convinces Rick to buy him a sexy robot. Guess what tho? Trouble happens, dog. (Guest starring Claudia Black and Richard Christy)',
                         NULL,
@@ -131,7 +123,7 @@ INSERT INTO episode (
                         episode_number
                     )
                     VALUES (
-                        7,
+                        6,
                         'Rick Potion No. 9',
                         'Rick helps Morty win over the girl of his dreams in this one, broh. Fist bump me, broh.',
                         NULL,
@@ -735,23 +727,4 @@ INSERT INTO episode (
                         5,
                         1
                     );
-
-
--- Index: sqlite_autoindex_episode_1
-DROP INDEX IF EXISTS sqlite_autoindex_episode_1;
-
-CREATE INDEX sqlite_autoindex_episode_1 ON episode (
-    title COLLATE BINARY
-);
-
-
--- Index: sqlite_autoindex_episode_2
-DROP INDEX IF EXISTS sqlite_autoindex_episode_2;
-
-CREATE INDEX sqlite_autoindex_episode_2 ON episode (
-    description COLLATE BINARY
-);
-
-
-COMMIT TRANSACTION;
-PRAGMA foreign_keys = on;
+                    
