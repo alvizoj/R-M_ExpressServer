@@ -12,7 +12,8 @@ export async function postCommentController(req: Request, res: Response) {
         isNaN(seasonNumber) ||
         isNaN(episodeNumber)
     ) {
-        res.sendStatus(400);
+        res.statusMessage = 'Type mismatch in one or more body fields.';
+        res.status(400).end();
         return;
     }
 
